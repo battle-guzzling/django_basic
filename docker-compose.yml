@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  django_basic_core_service:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/src
+    ports:
+      - 8000:8000
+    links: 
+      - mysql
+  mysql:
+    image: mysql:5.6
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass01
+      MYSQL_USER: django_basic
+      MYSQL_PASSWORD: userpass01
+      MYSQL_DATABASE: django_basic
