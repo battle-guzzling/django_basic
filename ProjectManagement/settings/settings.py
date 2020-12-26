@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from ProjectManagement.settings.utils import get_os_env
 
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework.authtoken",
     "drf_yasg",
+    "rest_framework",
     "AccountManagement",
 ]
 
@@ -78,11 +81,11 @@ WSGI_APPLICATION = "ProjectManagement.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "django_basic",
-        "USER": "django_basic",
-        "PASSWORD": "userpass01",
-        "HOST": "mysql",
-        "PORT": "3306",
+        "NAME": get_os_env("MYSQL_DATABASE"),
+        "USER": get_os_env("MYSQL_USER"),
+        "PASSWORD": get_os_env("MYSQL_PASSWORD"),
+        "HOST": get_os_env("MYSQL_HOST"),
+        "PORT": get_os_env("MYSQL_PORT"),
     }
 }
 

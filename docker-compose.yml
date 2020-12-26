@@ -6,6 +6,12 @@ services:
       - ./:/src
     ports:
       - 8000:8000
+    environment:
+      MYSQL_USER: django_basic
+      MYSQL_PASSWORD: userpass01
+      MYSQL_DATABASE: django_basic
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
     links: 
       - mysql
   mysql:

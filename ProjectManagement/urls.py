@@ -50,3 +50,9 @@ urlpatterns = [
         r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'
     ),
 ]
+
+account_urls = [
+    url(r"accounts/", include("AccountManagement.urls")),
+]
+
+urlpatterns = urlpatterns + account_urls

@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+*.pyc
+.idea/
+log/
+!log/README.md
+venv/
+.venv/
+*.bak
+logs/
+.vscode/
+static/
+*.sql
+local.env
+testdb.sqlite3
