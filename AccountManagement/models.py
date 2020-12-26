@@ -1,1 +1,1 @@
-from AccountManagement.models import *
+from AccountManagement.domain.models import *
