@@ -1,7 +1,9 @@
 from django.db import models
 import uuid
 from django.contrib.auth.hashers import make_password
+
 from Common.domain.models import BaseModel
+from Common.utils import pkgen
 
 
 class AccountTypeChoises(models.IntegerChoices):
@@ -10,7 +12,7 @@ class AccountTypeChoises(models.IntegerChoices):
 
 
 class Account(BaseModel):
-    id = models.UUIDField(max_length=40, primary_key=True, default=uuid.uuid4)
+    id = models.UUIDField(max_length=40, primary_key=True, default=pkgen)
     first_name = models.CharField(max_length=50, null=True, blank=True)
     last_name = models.CharField(max_length=50, null=True, blank=True)
     username = models.CharField(max_length=50, null=True, blank=True, unique=True)

@@ -2,11 +2,11 @@ from django.http import JsonResponse
 from rest_framework import status
 
 
-def success(message, data={}):
+def success(data):
     # localize message here
     # custom data here
     return JsonResponse(
-        {"data": data, "message": message},
+        {"data": data},
         safe=False,
         status=status.HTTP_200_OK,
     )
